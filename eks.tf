@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 19.0"
 
   cluster_name    = var.cluster_name
-  cluster_version = "1.29"
+  cluster_version = var.cluster_version
 
   cluster_encryption_config = []
   create_cloudwatch_log_group = false
@@ -17,8 +17,8 @@ module "eks" {
       max_size       = 2
       min_size       = 1
 
-      instance_types = ["t3.micro"]
-      ami_type = "AL2_x86_64" 
+      instance_types = [var.instance_type]
+      ami_type       = "AL2_x86_64"
     }
   }
 }
