@@ -4,17 +4,16 @@ variable "region" {
 }
 
 variable "cluster_name" {
-  description = "EKS Cluster Name"
-  default     = "poc13-eks-cluster"
+  description = "EKS cluster name"
+  default     = "poc-eks-cluster"
 }
 
-variable "vpc_cidr" {
-  description = "VPC CIDR block"
-  default     = "10.0.0.0/16"
+variable "cluster_version" {
+  description = "Kubernetes version"
+  default     = "1.29"
 }
 
-variable "public_subnets" {
-  description = "Public Subnets"
-  type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+variable "instance_type" {
+  description = "Worker node instance type"
+  default     = "t3.micro"
 }
