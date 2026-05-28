@@ -1,18 +1,18 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "~> 18.0"
+  version = "~> 20.0"
 
   cluster_name    = var.cluster_name
   cluster_version = "1.27"
 
-  subnets = module.vpc.public_subnets
-  vpc_id  = module.vpc.vpc_id
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.public_subnets
 
-  node_groups = {
-    example = {
-      desired_capacity = 1
-      max_capacity     = 2
-      min_capacity     = 1
+  eks_managed_node_groups = {
+    default = {
+      desired_size   = 1
+      max_size       = 2
+      min_size       = 1
 
       instance_types = ["t3.micro"]
     }
