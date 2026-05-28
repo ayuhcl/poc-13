@@ -15,5 +15,5 @@ variable "cluster_version" {
 
 variable "instance_type" {
   description = "Worker node instance type"
-  default     = "t3.micro"
+  default     = "c7i-flex.large"
 }
